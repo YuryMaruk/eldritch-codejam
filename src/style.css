@@ -8,18 +8,24 @@
 
 .body-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    min-width: 100vw;
-    min-height: 100vh;
+    width: 100vw;
+    height: 100vh;
     padding: 40px;
     background: no-repeat center url(bg.jpg);
     background-size: cover;
 }
 
 .eldritchs-div {
-    width: 30%;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.eld-row {
+    display: flex;
+    gap: 20px;
 }
 
 .level-div {
@@ -38,11 +44,28 @@
 }
 
 .eld-item {
-    min-height: 45vh;
-    background: url(./assets/Ancients/ShubNiggurath.png) center no-repeat;
+    height: 300px;
+    width: 200px;
+    background: center no-repeat;
     background-size: contain;
     border-radius: 16px;
     opacity: 0.5;
+}
+
+.eldritch1 {
+    background-image: url(./assets/Ancients/Azathoth.png);
+}
+
+.eldritch2 {
+    background-image: url(./assets/Ancients/Cthulthu.png);
+}
+
+.eldritch3 {
+    background-image: url(./assets/Ancients/IogSothoth.png);
+}
+
+.eldritch4 {
+    background-image: url(./assets/Ancients/ShubNiggurath.png);
 }
 
 .eld-item:hover {
@@ -50,6 +73,6 @@
 }
 
 .level-h1 {
-    color: aliceblue;
+    color: white;
     font-size: large;
 }
