@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+.html {
+    scroll-behavior: smooth;
+}
+
+.body-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    padding: 40px;
+    background: no-repeat center url(bg.jpg);
+    background-size: cover;
+}
+
+.eldritchs-div {
+    width: 30%;
+    height: 100%;
+}
+
+.level-div {
+    width: 15%;
+    height: 100%;
+}
+
+.action-div {
+    width: 30%;
+    height: 100%;
+}
+
+.eld-item {
+    min-height: 45vh;
+    background: url(./assets/Ancients/ShubNiggurath.png) center no-repeat;
+    background-size: contain;
+    border-radius: 16px;
+}
