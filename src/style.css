@@ -23,8 +23,13 @@
 }
 
 .level-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 15%;
     height: 100%;
+    gap: 20px;
 }
 
 .action-div {
@@ -37,4 +42,14 @@
     background: url(./assets/Ancients/ShubNiggurath.png) center no-repeat;
     background-size: contain;
     border-radius: 16px;
+    opacity: 0.5;
+}
+
+.eld-item:hover {
+    opacity: 1;
+}
+
+.level-h1 {
+    color: aliceblue;
+    font-size: large;
 }
