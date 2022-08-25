@@ -39,6 +39,9 @@
 }
 
 .action-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 30%;
     height: 100%;
 }
@@ -75,4 +78,13 @@
 .level-h1 {
     color: white;
     font-size: large;
+}
+
+.knead {
+    transition: 1s;
+    opacity: 0;
+}
+
+.knead-active {
+    opacity: 1;
 }
