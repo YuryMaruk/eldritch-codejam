@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box;
+}
+
+.html {
+    scroll-behavior: smooth;
+}
+
+.body-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 40px;
+    background: no-repeat center url(bg.jpg);
+    background-size: cover;
+}
+
+.eldritchs-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.eld-row {
+    display: flex;
+    gap: 20px;
+}
+
+.level-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    height: 100%;
+    gap: 20px;
+}
+
+.action-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+}
+
+.eld-item {
+    height: 300px;
+    width: 200px;
+    background: center no-repeat;
+    background-size: contain;
+    border-radius: 16px;
+    opacity: 0.5;
+}
+
+.eldritch1 {
+    background-image: url(./assets/Ancients/Azathoth.png);
+}
+
+.eldritch2 {
+    background-image: url(./assets/Ancients/Cthulthu.png);
+}
+
+.eldritch3 {
+    background-image: url(./assets/Ancients/IogSothoth.png);
+}
+
+.eldritch4 {
+    background-image: url(./assets/Ancients/ShubNiggurath.png);
+}
+
+.eld-item:hover {
+    opacity: 1;
+}
+
+.level-h1 {
+    color: white;
+    font-size: large;
+}
+
+.knead {
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.knead-active {
+    opacity: 1;
+}
+
+.counter {
+    display: none;
+    height: 150px;
+    width: 200px;
+    border: 1px solid red;
+}
+
+.desk {
+    display: none;
+    height: 300px;
+    width: 200px;
+    background: center no-repeat;
+    background-size: contain;
+    background-image: url(./assets/mythicCardBackground.png);
+    transition: 0.3s;
+}
