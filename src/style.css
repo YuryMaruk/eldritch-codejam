@@ -104,4 +104,5 @@
     background: center no-repeat;
     background-size: contain;
     background-image: url(./assets/mythicCardBackground.png);
+    transition: 0.3s;
 }

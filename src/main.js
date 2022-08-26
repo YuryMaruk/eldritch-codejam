@@ -61,7 +61,7 @@ function createDeskForEldritch() {
             createDesk(chosenBeast.thirdStage.blueCards, deskOfBlue))));
     console.log(deskFotThirtytStage);
 
-    finalDesk = finalDesk.concat(deskFotFirstStage, deskFotSecondtStage, deskFotThirtytStage);
+    finalDesk = [].concat(deskFotFirstStage, deskFotSecondtStage, deskFotThirtytStage);
     console.log(finalDesk);
 }
 
@@ -78,24 +78,42 @@ function drawCard(array) {
     return array;
 }
 
+/* При выборе древнего обновляем визуализацию */
+function updateEldritch() {
+    counter.style.display = 'none';
+    desk.style.display = 'none';
+    beast1.style.opacity = '0.5';
+    beast2.style.opacity = '0.5';
+    beast3.style.opacity = '0.5';
+    beast4.style.opacity = '0.5';
+}
+
 /* Event listeners */
 
 /* Выбираем древнего */
 beast1.addEventListener('click', () => {
+    updateEldritch();
     chosenBeast = ancientsData[0];
-    btmKnead.classList.add('knead-active')
+    btmKnead.classList.add('knead-active');
+    beast1.style.opacity = '1';
 });
 beast2.addEventListener('click', () => {
+    updateEldritch();
     chosenBeast = ancientsData[1];
     btmKnead.classList.add('knead-active')
+    beast2.style.opacity = '1';
 });
 beast3.addEventListener('click', () => {
+    updateEldritch();
     chosenBeast = ancientsData[2];
     btmKnead.classList.add('knead-active')
+    beast3.style.opacity = '1';
 });
 beast4.addEventListener('click', () => {
-    chosenBeast = ancientsData[3]; 
+    updateEldritch();
+    chosenBeast = ancientsData[3];
     btmKnead.classList.add('knead-active')
+    beast4.style.opacity = '1';
 });
 
 /* Замешиваем колоду для древнего*/
@@ -103,6 +121,7 @@ btmKnead.addEventListener('click', () => {
     btmKnead.classList.remove('knead-active');
     counter.style.display = 'block';
     desk.style.display = 'block';
+    desk.style.opacity = '1';
     createDeskForEldritch();
 });
 
