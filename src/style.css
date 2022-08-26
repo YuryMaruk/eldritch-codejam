@@ -40,7 +40,8 @@
 
 .action-div {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     width: 30%;
     height: 100%;
@@ -81,10 +82,26 @@
 }
 
 .knead {
-    transition: 1s;
+    transition: 0.5s;
     opacity: 0;
 }
 
 .knead-active {
     opacity: 1;
+}
+
+.counter {
+    display: none;
+    height: 150px;
+    width: 200px;
+    border: 1px solid red;
+}
+
+.desk {
+    display: none;
+    height: 300px;
+    width: 200px;
+    background: center no-repeat;
+    background-size: contain;
+    background-image: url(./assets/mythicCardBackground.png);
 }

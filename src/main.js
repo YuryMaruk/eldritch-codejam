@@ -7,31 +7,14 @@ const beast1 = document.querySelector('.eldritch1'),
     beast2 = document.querySelector('.eldritch2'),
     beast3 = document.querySelector('.eldritch3'),
     beast4 = document.querySelector('.eldritch4'),
-    btmKnead = document.querySelector('.knead');
+    btmKnead = document.querySelector('.knead'),
+    counter = document.querySelector('.counter'),
+    desk = document.querySelector('.desk');
 
+/* Выбранный древний */
 let chosenBeast = null;
-
-/* Event listeners */
-
-beast1.addEventListener('click', () => {
-    chosenBeast = ancientsData[0];
-    btmKnead.classList.add('knead-active')
-});
-beast2.addEventListener('click', () => { chosenBeast = ancientsData[1] });
-beast3.addEventListener('click', () => { chosenBeast = ancientsData[2] });
-beast4.addEventListener('click', () => { chosenBeast = ancientsData[3] });
-
-/* btmKnead.addEventListener('click', () => {});
- */
-
-
-/*Функция возвращает случайно число от min по max*/
-
-/* function randomInteger(min, max) {
-    // случайное число от min до (max+1)
-    let rand = min + Math.random() * (max + 1 - min);
-    return Math.abs(Math.floor(rand));
-} */
+/* Собранный набор карт для выбранного древнего */
+let finalDesk = [];
 
 /* Функция тусует  и возвращает колоду карт*/
 function shuffle(array) {
@@ -52,10 +35,8 @@ function createDesk(numberOfCards, deskOfCards) {
     return arr;
 }
 
-
-
-/* Шаг №1. Создаем три колоды карт зеленого, коричневого и голубого цвета для определенного древнего и перетусовываем каждую*/
-btmKnead.addEventListener('click', () => {
+/* Создает набор карт для выбранного древнего */
+function createDeskForEldritch() {
     let numGreenForBeast = chosenBeast.firstStage.greenCards + chosenBeast.secondStage.greenCards + chosenBeast.thirdStage.greenCards;
     let numBlueForBeast = chosenBeast.firstStage.blueCards + chosenBeast.secondStage.blueCards + chosenBeast.thirdStage.blueCards;
     let numBrownForBeast = chosenBeast.firstStage.brownCards + chosenBeast.secondStage.brownCards + chosenBeast.thirdStage.brownCards;
@@ -68,20 +49,72 @@ btmKnead.addEventListener('click', () => {
         [].concat(createDesk(chosenBeast.firstStage.greenCards, deskOfGreen),
             createDesk(chosenBeast.firstStage.brownCards, deskOfBrown),
             createDesk(chosenBeast.firstStage.blueCards, deskOfBlue))));
-            console.log(deskFotFirstStage);
+    console.log(deskFotFirstStage);
     let deskFotSecondtStage = shuffle(shuffle(
         [].concat(createDesk(chosenBeast.secondStage.greenCards, deskOfGreen),
             createDesk(chosenBeast.secondStage.brownCards, deskOfBrown),
             createDesk(chosenBeast.secondStage.blueCards, deskOfBlue))));
-            console.log(deskFotSecondtStage);
+    console.log(deskFotSecondtStage);
     let deskFotThirtytStage = shuffle(shuffle(
         [].concat(createDesk(chosenBeast.thirdStage.greenCards, deskOfGreen),
             createDesk(chosenBeast.thirdStage.brownCards, deskOfBrown),
             createDesk(chosenBeast.thirdStage.blueCards, deskOfBlue))));
-            console.log(deskFotThirtytStage);
+    console.log(deskFotThirtytStage);
 
-    let finalDesk = [].concat(deskFotFirstStage, deskFotSecondtStage, deskFotThirtytStage);
+    finalDesk = finalDesk.concat(deskFotFirstStage, deskFotSecondtStage, deskFotThirtytStage);
+    console.log(finalDesk);
+}
+
+/* Принимает колоду и показывает верхнюю карту, удаляя ее из колоды */
+function drawCard(array) {
+    console.log(array);
+    if (array.length == 0) {
+        desk.style.opacity = '0';
+    } else {
+        let card = array.shift().cardFace;
+        console.log(card);
+        desk.style.backgroundImage = `url(${card})`;
+    }
+    return array;
+}
+
+/* Event listeners */
+
+/* Выбираем древнего */
+beast1.addEventListener('click', () => {
+    chosenBeast = ancientsData[0];
+    btmKnead.classList.add('knead-active')
 });
+beast2.addEventListener('click', () => {
+    chosenBeast = ancientsData[1];
+    btmKnead.classList.add('knead-active')
+});
+beast3.addEventListener('click', () => {
+    chosenBeast = ancientsData[2];
+    btmKnead.classList.add('knead-active')
+});
+beast4.addEventListener('click', () => {
+    chosenBeast = ancientsData[3]; 
+    btmKnead.classList.add('knead-active')
+});
+
+/* Замешиваем колоду для древнего*/
+btmKnead.addEventListener('click', () => {
+    btmKnead.classList.remove('knead-active');
+    counter.style.display = 'block';
+    desk.style.display = 'block';
+    createDeskForEldritch();
+});
+
+/* Показываем карты по порядку из подготовленной колоды для древнего */
+desk.addEventListener('click', () => {
+    console.log(finalDesk);
+    finalDesk = drawCard(finalDesk);
+})
+
+
+
+
 
 
 
