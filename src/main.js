@@ -11,7 +11,7 @@ const beast1 = document.querySelector('.eldritch1'),
     counter = document.querySelector('.counter'),
     desk = document.querySelector('.desk');
 
-/* Путь на рубашку для карт*/
+/* Путь к изображению рубашки для карт*/
 const pathImgCardBack = './assets/mythicCardBackground.png';
 /* Выбранный древний */
 let chosenBeast = null;
@@ -38,7 +38,7 @@ function createDesk(numberOfCards, deskOfCards) {
     return arr;
 }
 
-/* Создает набор карт для выбранного древнего */
+/* Создает набор карт по уровням для выбранного древнего */
 function createDeskForEldritch() {
     let numGreenForBeast = chosenBeast.firstStage.greenCards + chosenBeast.secondStage.greenCards + chosenBeast.thirdStage.greenCards;
     let numBlueForBeast = chosenBeast.firstStage.blueCards + chosenBeast.secondStage.blueCards + chosenBeast.thirdStage.blueCards;
@@ -52,30 +52,26 @@ function createDeskForEldritch() {
         [].concat(createDesk(chosenBeast.firstStage.greenCards, deskOfGreen),
             createDesk(chosenBeast.firstStage.brownCards, deskOfBrown),
             createDesk(chosenBeast.firstStage.blueCards, deskOfBlue))));
-    console.log(deskFotFirstStage);
+    
     let deskFotSecondtStage = shuffle(shuffle(
         [].concat(createDesk(chosenBeast.secondStage.greenCards, deskOfGreen),
             createDesk(chosenBeast.secondStage.brownCards, deskOfBrown),
             createDesk(chosenBeast.secondStage.blueCards, deskOfBlue))));
-    console.log(deskFotSecondtStage);
+    
     let deskFotThirtytStage = shuffle(shuffle(
         [].concat(createDesk(chosenBeast.thirdStage.greenCards, deskOfGreen),
             createDesk(chosenBeast.thirdStage.brownCards, deskOfBrown),
             createDesk(chosenBeast.thirdStage.blueCards, deskOfBlue))));
-    console.log(deskFotThirtytStage);
 
     finalDesk = [].concat(deskFotFirstStage, deskFotSecondtStage, deskFotThirtytStage);
-    console.log(finalDesk);
 }
 
 /* Принимает колоду и показывает верхнюю карту, удаляя ее из колоды */
 function drawCard(array) {
-    console.log(array);
     if (array.length == 0) {
         desk.style.opacity = '0';
     } else {
         let card = array.shift().cardFace;
-        console.log(card);
         desk.style.backgroundImage = `url(${card})`;
     }
     return array;
@@ -132,10 +128,10 @@ btmKnead.addEventListener('click', () => {
 
 /* Показываем карты по порядку из подготовленной колоды для древнего */
 desk.addEventListener('click', () => {
-    console.log(finalDesk);
     finalDesk = drawCard(finalDesk);
 })
 
+console.log('Результат: 65 баллов');
 
 
 
