@@ -11,10 +11,13 @@ const beast1 = document.querySelector('.eldritch1'),
     counter = document.querySelector('.counter'),
     desk = document.querySelector('.desk');
 
+/* Путь на рубашку для карт*/
+const pathImgCardBack = './assets/mythicCardBackground.png';
 /* Выбранный древний */
 let chosenBeast = null;
 /* Собранный набор карт для выбранного древнего */
 let finalDesk = [];
+
 
 /* Функция тусует  и возвращает колоду карт*/
 function shuffle(array) {
@@ -86,6 +89,8 @@ function updateEldritch() {
     beast2.style.opacity = '0.5';
     beast3.style.opacity = '0.5';
     beast4.style.opacity = '0.5';
+    desk.style.backgroundImage = `url(${pathImgCardBack})`;
+
 }
 
 /* Event listeners */
